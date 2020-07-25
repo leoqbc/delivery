@@ -12,15 +12,28 @@ Projeto para estudo de relacionamentos N:N no Laravel e buscas e filtros
 
 # Instalação
 Copiar o aquivo:
-```.env.example > .env```
+```bash
+.env.example > .env
+```
 
 Executar:
-```composer install```
+```bash
+composer install
+```
 
 Caso de erro com a chave, rodar:
-```php artisan key:generate```
+```bash
+php artisan key:generate
+```
 
 Caso erro no .env:
-```php artisan cache:clear```
-```php artisan config:clear```
-```php artisan config:cache```
+```bash
+php artisan cache:clear
+```
+```bash
+php artisan config:clear
+```
+
+```bash
+php artisan config:cache
+```
