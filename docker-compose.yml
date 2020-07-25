@@ -1,0 +1,9 @@
+version: '3'
+services:
+    mysql:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+            MYSQL_DATABASE: delivery
+        ports:
+            - 3306:3306
