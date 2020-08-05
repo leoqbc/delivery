@@ -15,9 +15,9 @@ class Empresa extends Model
         'coordenadas'
     ];
 
-    // Relaciona com Tag
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        // relaciona N:N com Tags não esqueça do padrão empresa_tag
+        return $this->belongsToMany('App\Tag'); // automatica ('App\Tag', 'campo', 'tabela')
     }
 }

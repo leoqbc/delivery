@@ -9,10 +9,9 @@ use App\Empresa;
 class Tag extends Model
 {
     protected $fillable = ['nome'];
-
-    // Tag para empresa
+    
     public function empresas()
     {
-        return $this->belongsToMany(Empresa::class); // App\Empresa
+        return $this->belongsToMany('App\Empresa');
     }
 }

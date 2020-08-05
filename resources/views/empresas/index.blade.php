@@ -13,18 +13,18 @@
     
     <form action="{{ route('empresas') }}" method="GET">
         <ul>
+            @foreach($tags as $tag)
             <li>
-                <input type="checkbox" name="filtros[mercado]" value="1"  id="mercado" @isset(request()->get('filtros')['mercado']) checked @endisset>
-                <label for="mercado">mercado</label>
+                <input 
+                type="checkbox" 
+                name="filtros[{{ $tag->nome }}]" 
+                value="{{ $tag->id }}"  
+                id="{{ $tag->nome }}" 
+                @isset(request()->get('filtros')[$tag->nome]) checked @endisset
+                >
+                <label for="{{ $tag->nome }}">{{ $tag->nome }}</label>
             </li>
-            <li>
-                <input type="checkbox" name="filtros[alimentos]" value="1" id="alimentos" @isset(request()->get('filtros')['alimentos']) checked @endisset>
-                <label for="alimentos">alimentos</label>
-            </li>
-            <li>
-                <input type="checkbox" name="filtros[cosmeticos]" value="1" id="cosmeticos" @isset(request()->get('filtros')['cosmeticos']) checked @endisset>
-                <label for="cosmeticos">cosméticos</label>
-            </li>
+            @endforeach
         </ul>
         <button>Filtrar</button>
         
