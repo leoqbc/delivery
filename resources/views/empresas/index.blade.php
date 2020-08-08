@@ -27,22 +27,22 @@
             @endforeach
         </ul>
         <button>Filtrar</button>
-        
+        <a href="{{ route('empresas') }}">Resetar</a>
     </form>
 
-    <div class="empresa">
-        <h2>Extra</h2>
-        <p>Tags: mercado, supermercado, alimentos, banheiro, pão</p>
-    </div>
-
-    <div class="empresa">
-        <h2>DrogaRaia</h2>
-        <p>Tags: cosméticos, medicamentos, banheiro</p>
-    </div>
-
-    <div class="empresa">
-        <h2>Panificadora do Zé</h2>
-        <p>Tags: lanches, pratos, pão</p>
-    </div>
+    @forelse($empresas as $empresa)
+        <div class="empresa">
+            <h2>{{ $empresa->nome }}</h2>
+            <p> Tags: 
+            @foreach($empresa->tags as $tag)
+                <a href="">{{ $tag->nome }}</a>
+            @endforeach
+            </p>
+        </div>
+    @empty
+        <div class="empresa">
+            <h2>Empresas não encontradas</h2>
+        </div>
+    @endforelse
 </body>
 </html>

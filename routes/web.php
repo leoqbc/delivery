@@ -18,4 +18,8 @@ Route::get('/', function () {
 });
 
 // rota para http://localhost/empresas
-Route::get('/empresas', 'EmpresaController@index')->name('empresas');
+Route::get('/empresas', 'EmpresaController@index')->name('empresas')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
